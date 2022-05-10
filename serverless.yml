@@ -1,0 +1,46 @@
+service: km-max-nuxt-multi-site-app
+useDotenv: true
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${self:custom.secrets.NODE_ENV}
+  region: ap-south-1
+  environment:
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+
+package:
+  individually: true
+  exclude:
+    - node_modules/**
+    - components/**
+    - layouts/**
+    - middleware/**
+    - pages/**
+    - plugins/**
+    - store/**
+    - .github/**
+    - .idea/**
+    - .eslintrc.js
+    - package-lock.json
+
+  include:
+    - .nuxt/**
+    - .htaccess
+    - nuxt.config.js
+    - binaryMimeTypes.js
+    - nuxt.js
+    - index.js
+    - .env
+
+functions:
+  nuxt:
+    handler: index.nuxt
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
+
+custom:
+  secrets: ${file(secrets.json)}
+

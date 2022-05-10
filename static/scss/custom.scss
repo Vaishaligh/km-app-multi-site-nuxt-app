@@ -1,0 +1,61 @@
+@import "../../node_modules/bootstrap/scss/functions.scss";
+$white: #fff;
+$primary:lightgray ;
+$gray-900: #212529;
+:root {
+  --btn-font-size: 16px;
+  --body-text-align: null;
+  --paragraph-margin-bottom: 1rem;
+  --spacer: 1rem;
+  --body-ancient-color:#fafafa;
+  --border-radius: 0.25rem;
+  --border-radius-sm: 0.2rem;
+  --border-radius-lg: 0.3rem;
+  --border-radius-pill: 50rem;
+  --box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
+  --box-shadow-lg: 0 1rem 3rem rgba($black, 0.175);
+  --box-shadow-inset: inset 0 1px 2px rgba($black, 0.075);
+}
+
+$btn-font-size: var(--btn-font-size);
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+$link-color: $primary !default;
+$spacer: 1rem !default;
+$body-text-align: var (--body-text-align);
+$link-decoration: var(--link-decoration);
+$paragraph-margin-bottom: var(--paragraph-margin-bottom);
+$border-radius: var(--border-radius);
+$border-radius-sm: var(--border-radius-sm);
+$border-radius-lg: var(--border-radius-lg);
+$border-radius-pill: var(--border-radius-pill);
+$box-shadow: var(--box-shadow);
+$box-shadow-sm: var(--box-shadow-sm);
+$box-shadow-lg: var(--box-shadow-lg);
+$box-shadow-inset: var(--box-shadow-inset);
+// pdp price css
+// Generate width Gen
+$widthRange: 10;
+@mixin widthGen {
+  @for $i from 1 through $widthRange {
+    .kartmax-width-#{$i} {
+      width: $i + px;
+    }
+  }
+}
+// Generate multiple kartmax font-size
+$textFont: 50;
+@mixin textFontSize {
+  @for $i from 10 through $textFont {
+    @if $i % 2 == 0 {
+      .kartmax-text-f-#{$i} {
+        font-size: $i + px;
+      }
+    }
+  }
+}
+@include textFontSize;
+@include widthGen;
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
