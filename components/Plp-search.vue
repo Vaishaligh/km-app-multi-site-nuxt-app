@@ -18,10 +18,18 @@ export default {
       console.log(response, "plp-page");
       this.productData = response.data.data;
       
+      
     });
-       document.addEventListener("click", function () {
-          document.getElementById("km-add-to-cart").innerHTML = "Hello World";
-     
+
+    setTimeout(()=> {
+ const btn = document.querySelector('#km-add-to-cart');
+  btn.addEventListener('click', ()=> {
+      alert("ok")
+    })
+    }, 2000)
+    
+       document.addEventListener("click", function ({event}) {
+         alert("hello")
      })
   },
 };
