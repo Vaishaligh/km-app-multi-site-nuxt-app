@@ -38,7 +38,7 @@
       </li>
       
 
-       <li>
+       <li v-if="exchangeButton" >
         <nuxt-link :to="{ path: '/account/exchange' }" class="text-dark"
           >
           Exchange

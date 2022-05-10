@@ -18,7 +18,7 @@
         <!-- there be a sidebar component  -->
 
         <div class="col-md-3">
-          <Sidebar logout='true' :returnShow='returnShow'  :exchangeShow="exchangeShow"  :creditShow="creditShow"/>
+          <Sidebar logout='true' :returnShow='returnShow' :exchangeShow="exchangeShow"  :creditShow="creditShow"/>
         </div>
 
         <div class="col-md-9">
@@ -775,6 +775,7 @@ export default {
       exchangeShow:false,
       returnShow:false,
       creditShow:false,
+      exchangeButton: "",
       order: [],
       customer_name: "",
       customer_dob: "",
@@ -1763,10 +1764,13 @@ export default {
           )
           .then(async response =>{
             if (response.data.success === true) {
+              console.log()
               this.$store.state.list.page_loader = false;
               this.returnShow = response.data.data.returnEnabled
               this.exchangeShow = response.data.data.exchangeEnabled
               this.creditShow =  response.data.data.creditsEnabled
+              this.exchangeButton = response.data.data.exchange_enabled
+              console.log(this.exchangeButton,"exchange")
               let value = {
                 return:this.returnShow,
                 exchange:this.exchangeShow,
