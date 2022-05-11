@@ -68,7 +68,7 @@
 <script>
 
 export default {
-  props: ["logout",'returnShow','exchangeShow','creditShow'],
+  props: ["logout",'returnShow','exchangeShow','creditShow','exchangeButton'],
   methods:{
      log_out: function () {
       if (this.$store.state.list.cart_id == "") {
